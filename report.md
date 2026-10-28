@@ -3,44 +3,39 @@ Wireshark Network Analysis Lab — Project Report
 Student: Benjamin Dean Ojokpe
 Project: Wireshark Network Analysis Lab
 Environment: Kali Linux running in VMware
-Repository: https://github.com/Benjamin924-wg/wireshark-network-analysis-lab
+Tools: Wireshark, Python, HTTP, DNS, Nmap, SHA-256
+Repository: "Wireshark Network Analysis Lab" (https://github.com/Benjamin924-wg/wireshark-network-analysis-lab)
 
 1. Introduction
 
-This project demonstrates beginner-level network traffic analysis using Wireshark on Kali Linux. The practical exercises focused on examining network packets, understanding TCP connections, inspecting HTTP and DNS traffic, exporting HTTP objects, and recognizing TCP port scans.
+This project demonstrates beginner-level network traffic analysis using Wireshark on Kali Linux. The practical exercises cover packet capture, TCP connections, HTTP traffic, DNS queries, HTTP object export, traffic statistics, file integrity verification, and Nmap port scanning.
 
 2. Objectives
 
-- Capture and inspect network traffic using Wireshark.
-- Apply display filters to identify specific packets.
-- Understand the TCP three-way handshake.
+- Capture and inspect network packets.
+- Identify TCP three-way handshakes.
 - Examine HTTP requests and responses.
-- Observe DNS queries and responses.
-- Export an HTTP object and compare its SHA-256 hash.
-- Identify open and closed TCP ports in a local scan.
+- Understand DNS queries and responses.
+- Export an HTTP object and compare file hashes.
+- Review traffic statistics and network conversations.
+- Observe TCP port-scanning traffic in an authorized local lab.
+- Document practical findings using screenshots.
 
-3. Tools and Environment
+3. Lab Environment
 
-- Kali Linux running in VMware
-- Wireshark
-- Python 3 local HTTP server
-- curl
-- Nmap
-- GitHub for project documentation
+The exercises used Kali Linux in VMware and a local Python HTTP server at "127.0.0.1:8081".
 
-The HTTP lab server used the local address "127.0.0.1:8081". Testing was performed on my own lab environment.
+The local server provided a test webpage and an image file for HTTP traffic analysis. Nmap scanning was restricted to the user's own local test environment.
 
-4. Practical Exercises and Findings
+4. Practical Exercises
 
 Exercise 1: Packet Capture
 
-Captured network traffic using Wireshark and saved packet captures for inspection.
-
-Evidence to add: Screenshot showing the packet list and capture interface.
+Captured traffic with Wireshark while accessing the local test server. Saved a packet capture for analysis.
 
 Exercise 2: Display Filters
 
-Practised filtering HTTP traffic using expressions including:
+Practised filtering HTTP and TCP packets using filters including:
 
 - "tcp.port == 8081"
 - "http"
@@ -48,114 +43,85 @@ Practised filtering HTTP traffic using expressions including:
 - "http.request.method == "GET""
 - "http.response.code == 200"
 
-These filters helped isolate relevant requests and responses.
-
 Exercise 3: TCP Three-Way Handshake
 
-Used TCP flag filters to examine connection establishment:
-
-- "tcp.flags.syn == 1"
-- "tcp.flags.syn == 1 && tcp.flags.ack == 0"
-
-The TCP handshake consists of SYN, SYN-ACK, and ACK packets.
-
-Evidence to add: Screenshot showing the three handshake packets, labelled in order.
-
-Exercise 4: HTTP Traffic Inspection
-
-Inspected HTTP traffic from the local training server and practised following an HTTP stream.
-
-The login exercise used fictional credentials for educational purposes. Plain HTTP does not encrypt transmitted content, so credentials sent over it may be exposed to anyone able to capture the traffic.
-
-Evidence to add: A screenshot of the lab-only HTTP stream. Do not use real passwords or personal credentials.
-
-Exercise 5: DNS Analysis
-
-Generated DNS queries using "nslookup" and examined DNS packets with Wireshark filters such as "dns" and "dns.flags.response == 1".
-
-This exercise introduced the relationship between DNS queries and their responses.
-
-Evidence to add: Screenshot of a DNS query and its response.
-
-Exercise 6: Traffic Statistics
-
-Generated repeated requests to the local HTTP server and examined Wireshark statistics, including Conversations, Endpoints, Protocol Hierarchy, and I/O Graphs.
-
-The exercise demonstrated how packet statistics can help summarize network activity.
-
-Evidence to add: Screenshot of the Conversations table and, if available, the I/O Graph.
-
-Exercise 7: HTTP Object Export and Integrity Verification
-
-Downloaded the lab's "logo.png" object and exported the corresponding HTTP object from Wireshark.
-
-Compared the SHA-256 hashes of "original_logo.png" and "exported_logo.png". The hashes matched, confirming that the two files had identical contents.
-
-Evidence to add: Screenshot showing both filenames and their matching SHA-256 hashes.
-
-Exercise 8: Local TCP Port Scan
-
-Used Nmap to scan TCP ports 8070–8090 on "127.0.0.1".
-
-The scan identified TCP port 8081 as open and the other scanned ports as closed at the time of testing.
-
-This result was consistent with the local HTTP server listening on port 8081. The scan was restricted to my own lab machine.
-
-Evidence to add: Screenshot of the Nmap results and Wireshark packets showing SYN traffic from the scan.
-
-5. Security Lessons
-
-The exercises demonstrated that:
-
-- Packet captures can reveal details about network communication.
-- Display filters make traffic analysis more efficient.
-- Plain HTTP does not provide transport encryption.
-- DNS traffic can be inspected to understand name resolution.
-- SHA-256 hashes can be used to compare file contents.
-- TCP scans can help identify which ports are accepting connections.
-
-6. Challenges and Learning Outcomes
-
-Working through the lab improved my familiarity with Wireshark filters, packet capture files, HTTP traffic, TCP flags, DNS, file export, and basic Nmap scanning.
-
-The project also helped me practise documenting technical work and maintaining a cybersecurity portfolio on GitHub.
-
-7. Conclusion
-
-This project provided practical introductory experience in network traffic analysis using Wireshark and Kali Linux. It established a foundation for further learning in network security, packet inspection, and defensive cybersecurity.
-
-8. Evidence Checklist
-
-- [ ] TCP three-way handshake screenshot
-- [ ] HTTP stream screenshot using fictional lab credentials
-- [ ] DNS query and response screenshot
-- [ ] Network statistics screenshot
-- [ ] Matching SHA-256 hash screenshot
-- [ ] Nmap scan and SYN traffic screenshot
-9. Screenshot Evidence
-
-The following screenshots document practical exercises completed during this Wireshark network analysis project.
-
-9.1 TCP Three-Way Handshake
+Examined TCP connection establishment using SYN and ACK flags. The handshake consists of SYN, SYN-ACK, and ACK packets.
 
 "TCP Handshake" (screenshots/TCP%20Handshake1.jpg)
 
-9.2 HTTP Stream Analysis
+Exercise 4: HTTP Stream Analysis
+
+Inspected HTTP requests and responses and used Follow HTTP Stream to understand the contents of a test HTTP session. The lab used fictional credentials for educational purposes.
 
 "HTTP Stream" (screenshots/HTTP%20Stream%201.jpg)
 
-9.3 DNS Query and Response Analysis
+Security lesson: Plain HTTP does not encrypt its contents. Real credentials and sensitive information should never be sent over insecure HTTP.
+
+Exercise 5: DNS Analysis
+
+Generated DNS queries for test domains and used Wireshark filters to inspect DNS questions and responses.
 
 "DNS Analysis" (screenshots/DNS%20Analysis.jpg)
 
-9.4 Traffic Statistics
+Exercise 6: Traffic Statistics
+
+Generated repeated requests to the local server and used Wireshark statistics, including Conversations, Endpoints, and Protocol Hierarchy, to examine the captured traffic.
 
 "Traffic Statistics" (screenshots/Traffic%20Statistics.jpg)
 
-9.5 SHA-256 File Integrity Comparison
+Exercise 7: HTTP Object Export and File Integrity
+
+Exported an image object from HTTP traffic and compared its SHA-256 hash with the original image. The hashes matched, indicating that the two files had identical contents.
 
 "SHA-256 Comparison" (screenshots/SHA-256%20Comparison.jpg)
 
-9.6 Nmap Port Scan
+Exercise 8: Nmap Port Scanning
+
+Scanned ports 8070–8090 on the local test machine using Nmap. The test server was listening on port 8081, while the other scanned ports were reported closed during the exercise.
 
 "Nmap Scan" (screenshots/Nmap%20Scan.jpg)
+
+Safety note: Port scanning was restricted to the local lab machine. Scanning systems without permission is not appropriate.
+
+5. Key Findings
+
+1. Wireshark can capture and filter packets for detailed inspection.
+2. TCP flags help explain how connections are established.
+3. HTTP streams can expose unencrypted content.
+4. DNS packets reveal domain lookup activity.
+5. Wireshark statistics help summarize network conversations and traffic.
+6. SHA-256 provides a practical way to compare file integrity.
+7. Nmap can identify open and closed ports on an authorized test host.
+
+6. Skills Practised
+
+- Basic packet capture and filtering
+- TCP handshake analysis
+- HTTP request and response inspection
+- DNS query analysis
+- HTTP object export
+- SHA-256 file verification
+- Network traffic statistics
+- Basic Nmap port scanning
+- Technical documentation
+
+7. Limitations
+
+This was a beginner-level lab conducted in a controlled local environment. The results should not be interpreted as a full security audit or proof that a real network is secure.
+
+8. Conclusion
+
+This project provided practical experience using Wireshark and related tools to investigate network traffic. It improved my understanding of TCP, HTTP, DNS, file integrity, traffic statistics, and basic port scanning.
+
+The exercises form part of my ongoing development in networking and cybersecurity.
+
+9. Screenshot Evidence Checklist
+
+- [x] TCP three-way handshake
+- [x] HTTP stream analysis
+- [x] DNS query and response
+- [x] Traffic statistics
+- [x] SHA-256 comparison
+- [x] Nmap port scan
+
+All six screenshots are stored in the repository's "screenshots" folder.
