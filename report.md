@@ -49,7 +49,7 @@ Examined TCP connection establishment using SYN and ACK flags. A typical TCP han
 
 Screenshot evidence:
 
-![TCP Handshake](screenshots/TCP%20Handshake1.jpg)
+![TCP Three-Way Handshake](screenshots/TCP%20Handshake1.jpg)
 
 7. Exercise 4 — HTTP Stream Analysis
 
@@ -57,7 +57,7 @@ Inspected HTTP requests and responses and used Follow HTTP Stream to examine a t
 
 Screenshot evidence:
 
-![HTTP Stream](screenshots/HTTP%20Stream%201.jpg)
+![HTTP Stream Analysis](screenshots/HTTP%20Stream%201.jpg)
 
 Security lesson: Plain HTTP does not encrypt its contents. Real credentials and sensitive information should not be sent over insecure HTTP.
 
@@ -91,7 +91,7 @@ Scanned ports 8070–8090 on the local test machine using Nmap. During the exerc
 
 Screenshot evidence:
 
-![Nmap Scan](screenshots/Nmap%20Scan.jpg)
+![Nmap Port Scan](screenshots/Nmap%20Scan.jpg)
 
 Safety note: The scan was limited to the local lab machine. Only scan systems when you have permission.
 
