@@ -132,3 +132,30 @@ This project provided practical introductory experience in network traffic analy
 - [ ] Network statistics screenshot
 - [ ] Matching SHA-256 hash screenshot
 - [ ] Nmap scan and SYN traffic screenshot
+9. Screenshot Evidence
+
+The following screenshots document practical exercises completed during this Wireshark network analysis project.
+
+9.1 TCP Three-Way Handshake
+
+"TCP Handshake" (screenshots/TCP%20Handshake1.jpg)
+
+9.2 HTTP Stream Analysis
+
+"HTTP Stream" (screenshots/HTTP%20Stream%201.jpg)
+
+9.3 DNS Query and Response Analysis
+
+"DNS Analysis" (screenshots/DNS%20Analysis.jpg)
+
+9.4 Traffic Statistics
+
+"Traffic Statistics" (screenshots/Traffic%20Statistics.jpg)
+
+9.5 SHA-256 File Integrity Comparison
+
+"SHA-256 Comparison" (screenshots/SHA-256%20Comparison.jpg)
+
+9.6 Nmap Port Scan
+
+"Nmap Scan" (screenshots/Nmap%20Scan.jpg)
