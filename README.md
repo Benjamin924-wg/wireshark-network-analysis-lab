@@ -1,56 +1,76 @@
-Wireshark Network Analysis Lab
+Wireshark Network Traffic Analysis Lab
+
+A hands-on cybersecurity and network analysis project using Kali Linux, Wireshark, Python, and Nmap.
 
 Project Overview
 
-This project documents my beginner cybersecurity practical exercises using Wireshark and Kali Linux. I learned how to capture network packets, inspect TCP connections, analyze HTTP and DNS traffic, export files, and recognize TCP port scans on my own computer.
+This project documents eight practical exercises completed in a controlled local lab environment. It demonstrates how to capture, filter, inspect, and interpret network traffic while developing foundational cybersecurity skills.
 
 Objectives
 
-- Learn basic packet capture with Wireshark.
-- Understand TCP three-way handshakes.
-- Analyze HTTP requests and responses.
-- Observe why unencrypted HTTP can expose submitted data.
-- Examine DNS queries and responses.
-- Use Wireshark statistics to analyze traffic.
-- Export HTTP objects and compare SHA-256 hashes.
-- Recognize port scanning activity using Nmap.
+- Capture and analyze network packets.
+- Identify TCP three-way handshakes.
+- Inspect HTTP requests, responses, and streams.
+- Analyze DNS queries and responses.
+- Review network traffic statistics.
+- Export HTTP objects and verify file integrity using SHA-256.
+- Recognize TCP port-scanning activity.
 
-Tools Used
+Tools and Technologies
 
 - Kali Linux
 - Wireshark
 - Python 3
+- HTTP and DNS
 - curl
 - Nmap
+- SHA-256
 - GitHub
 
 Practical Exercises
 
-1. First packet capture
-2. Display filters
-3. TCP three-way handshake
-4. HTTP stream and lab-only test credentials
-5. DNS traffic analysis
-6. Protocol hierarchy, conversations, endpoints, and I/O graphs
-7. HTTP object export and SHA-256 integrity verification
-8. TCP port scan recognition on localhost
+Exercise| Topic
+1| Initial packet capture
+2| Wireshark display filters
+3| TCP three-way handshake
+4| HTTP stream analysis
+5| DNS traffic analysis
+6| Network traffic statistics
+7| HTTP object export and SHA-256 verification
+8| Nmap TCP port scanning
 
-Lab Environment
+Repository Contents
 
-The test server runs locally at "127.0.0.1:8081". It is designed for authorized practice on my own computer.
+- "report.md" — Detailed practical report.
+- "screenshots/" — Visual evidence from the exercises.
+- "lab_server.py" — Local HTTP test server.
+- "original_logo.png" — Original test image.
+- "exported_logo.png" — Image exported from HTTP traffic.
+- ".pcapng" files — Saved packet captures from the lab exercises.
 
-Key Learning
+Key Findings
 
-- How to filter packets by protocol and port.
-- How TCP connections are established and closed.
-- How HTTP traffic can expose information without encryption.
-- How to identify DNS activity and TCP port scanning patterns.
-- How to verify exported files using SHA-256 hashes.
+- TCP connections use SYN, SYN-ACK, and ACK to establish communication.
+- Unencrypted HTTP traffic can expose transmitted information.
+- DNS packets reveal domain lookup activity.
+- Wireshark statistics help summarize network conversations.
+- Matching SHA-256 hashes indicate identical file contents.
+- Nmap identified port 8081 as open and the other scanned ports as closed on the local test machine.
 
-Safety
+Security and Authorization
 
-All scanning and traffic generation in this project are limited to my own local lab environment. The login details used are fake training credentials.
+All traffic generation and scanning were conducted within my own local lab environment. The HTTP login credentials were fictional training credentials. No third-party systems were targeted.
 
 Project Status
 
-Practical exercises completed so far include HTTP object export and hash comparison, and a local Nmap scan. Additional screenshots and results will be added as the lab documentation progresses.
+Completed: Eight practical exercises documented with screenshots and supporting files.
+
+Author
+
+Benjamin Dean Ojokpe
+
+Cybersecurity Learner | Network Analysis | Wireshark
+
+Detailed Documentation
+
+See "the complete practical report" (report.md) for exercise descriptions, findings, and screenshot evidence.
